@@ -32,31 +32,53 @@ my_bluetooth.begin(nama_bluetooth);
 
 void loop() {
 
-  if(my_bluetooth.available()> 0){
+/* if(my_bluetooth.available()> 0){
     //char dat = Serial.read();
     char dat = my_bluetooth.read();
+    Serial.println(dat); */
+
+  if(Serial.available()> 0){
+    char dat = Serial.read();
     Serial.println(dat);
     
     if (dat=='B'){
       digitalWrite(mtrA01,HIGH);
       digitalWrite(mtrA02,LOW);
-      digitalWrite(18,LOW);
+      digitalWrite(mtrB01,LOW);
       digitalWrite(mtrB02,HIGH);
       Serial.println(" Motor Gerak ke UNDUR");
-      
     }
     
     if (dat=='F'){
       digitalWrite(mtrA01,LOW);
       digitalWrite(mtrA02,HIGH);
-      digitalWrite(18,HIGH);
+      digitalWrite(mtrB01,HIGH);
       digitalWrite(mtrB02,LOW);
       Serial.println(" Motor Gerak ke DEPAN ");
     }
+    
     if (dat=='S'){
       digitalWrite(mtrA01,LOW);
       digitalWrite(mtrA02,LOW);
-      digitalWrite(18,LOW);
+      digitalWrite(mtrB01,LOW);
       digitalWrite(mtrB02,LOW);
       Serial.println(" Motor HENTI");
     }
+
+    else if (dat=='R'){
+      digitalWrite(mtrA01,LOW);
+      digitalWrite(mtrA02,HIGH);
+      digitalWrite(mtrB01,LOW);
+      digitalWrite(mtrB02,HIGH);
+      Serial.println(" Motor Gerak ke KIRI");
+    }
+
+    else if (dat=='L'){
+      digitalWrite(mtrA01,HIGH);
+      digitalWrite(mtrA02,LOW);
+      digitalWrite(mtrB01,HIGH);
+      digitalWrite(mtrB02,LOW);
+      Serial.println(" Motor Gerak ke KANAN");
+    }
+  }
+}
