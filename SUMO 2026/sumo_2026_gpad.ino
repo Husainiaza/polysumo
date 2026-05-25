@@ -1,3 +1,4 @@
+/* Bluepad32 Board Manager: https://raw.githubusercontent.com/ricardoquesada/esp32-arduino-lib-builder/master/bluepad32_files/package_esp32_bluepad32_index.json */
 #include <Bluepad32.h>
 
 #define LED_PIN     5
